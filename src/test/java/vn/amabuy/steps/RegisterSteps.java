@@ -5,7 +5,7 @@ import static com.google.common.truth.Truth.*;
 import static com.google.common.truth.Truth8.*;
 
 import net.thucydides.core.annotations.Step;
-import vn.amabuy.features.models.Account;
+import vn.amabuy.models.Account;
 import vn.amabuy.pages.RegisterPage;
 
 public class RegisterSteps {

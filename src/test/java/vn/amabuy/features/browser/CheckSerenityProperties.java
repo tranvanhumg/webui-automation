@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.util.EnvironmentVariables;
-import vn.amabuy.features.properties.MyProperties;
+import vn.amabuy.properties.MyProperties;
 
 @RunWith(SerenityRunner.class)
 public class CheckSerenityProperties {

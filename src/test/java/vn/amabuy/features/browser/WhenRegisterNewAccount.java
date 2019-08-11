@@ -9,7 +9,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
-import vn.amabuy.features.models.Account;
+import vn.amabuy.models.Account;
 import vn.amabuy.steps.HomeSteps;
 import vn.amabuy.steps.LoginSteps;
 import vn.amabuy.steps.RegisterSteps;
@@ -35,7 +35,7 @@ public class WhenRegisterNewAccount {
 	RegisterSteps registerSteps;
 
 
-	@Test 
+	@Pending @Test 
 	public void register_new_account_with_incorect_password() {
 		String errMsg ="thành công";
 		
@@ -67,7 +67,7 @@ public class WhenRegisterNewAccount {
 	}
 
 
-	@Pending @Test
+	@Test
 	public void register_new_account_with_wrong_confirm_password() {
 		String errMsg = "Mật khẩu xác nhận không chính xác";
 		homeSteps.visit_the_application();
