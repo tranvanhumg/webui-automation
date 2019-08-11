@@ -3,8 +3,9 @@ package vn.amabuy.pages;
 import net.serenitybdd.core.pages.PageObject;
 
 public class RegisterPage extends PageObject {
-
-	private static final String ALERT = "//div[@class='alert alert-danger text-center']";
+	
+	private static final String ALERT_SUCCESS = "//div[@class='alert alert-success text-center']";
+	private static final String ALERT_DANGER = "//div[@class='alert alert-danger text-center']";
 	private static final String FULLNAME_FILED = "Họ và tên";
 	private static final String EMAIL_FILED = "Địa chỉ Email";
 	private static final String PHONE_FILED = "Số điện thoại";
@@ -45,6 +46,9 @@ public class RegisterPage extends PageObject {
 	}
 
 	public String getErrMsg() {
-		return element(ALERT).getText();
+		return element(ALERT_DANGER).getText();
+	}
+	public String getSuccessMsg() {
+		return element(ALERT_SUCCESS).getText();
 	}
 }

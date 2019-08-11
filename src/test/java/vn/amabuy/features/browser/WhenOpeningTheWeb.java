@@ -19,7 +19,7 @@ public class WhenOpeningTheWeb {
 	@Steps
 	HomeSteps onHomeStep;
 	
-	@Pending @Test
+	@Test
 	public void when_opening_the_application() {
 	
 		onHomeStep.visit_the_application();

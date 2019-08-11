@@ -1,20 +1,23 @@
 package vn.amabuy.steps;
 
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
+import static com.google.common.truth.Truth.*;
+import static com.google.common.truth.Truth8.*;
 
 import net.thucydides.core.annotations.Step;
+import vn.amabuy.features.models.Account;
 import vn.amabuy.pages.RegisterPage;
 
 public class RegisterSteps {
 	RegisterPage onRegisterPage;
 
 	@Step
-	public void register_new_account(String fullName, String email, String phone,String pwd,String confirmpwd) {
-		enter_full_name(fullName);
-		enter_email(email);
-		enter_phone(phone);
-		enter_password(pwd);
-		enter_confirm_password(confirmpwd);
+	public void register_new_account_with(Account account) {
+		enter_full_name(account.getFullname());
+		enter_email(account.getEmail());
+		enter_phone(account.getPhone());
+		enter_password(account.getPassword());
+		enter_confirm_password(account.getRepassword());
 		click_on_register_bt();
 	}
 	@Step
@@ -43,6 +46,12 @@ public class RegisterSteps {
 	}
 	@Step
 	public void should_see_warning_error_message_correct(String expectedStr) {
-	 assertEquals(expectedStr, onRegisterPage.getErrMsg());
+	 //assertEquals(expectedStr, onRegisterPage.getErrMsg());		 		    
+		//assertThat(expectedStr).isEqualTo(onRegisterPage.getErrMsg());
+		assertThat(onRegisterPage.getErrMsg()).contains(expectedStr);
+	}
+	@Step
+	public void should_see_message_correct(String expectedStr) {
+		assertThat(onRegisterPage.getSuccessMsg()).contains(expectedStr);
 	}
 }
