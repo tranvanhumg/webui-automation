@@ -22,8 +22,7 @@ public class MyCapabilityEnhancer implements BeforeAWebdriverScenario {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("start-maximized");
 		options.addArguments("--incognito");
-		options.addArguments("--window-size=600,600");
-		options.addArguments("--window-position=300,300");
+		
 		
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);

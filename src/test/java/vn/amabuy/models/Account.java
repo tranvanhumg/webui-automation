@@ -34,10 +34,6 @@ public class Account {
 		this.email = email;
 	}
 	
-	public void setEmail_randoom(String email) {
-		this.email = email;
-	}
-
 	public String getPhone() {
 		return phone;
 	}

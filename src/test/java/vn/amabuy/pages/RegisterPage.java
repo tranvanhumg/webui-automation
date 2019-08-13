@@ -1,8 +1,8 @@
 package vn.amabuy.pages;
 
-import net.serenitybdd.core.pages.PageObject;
+import vn.amabuy.MyPageObject;
 
-public class RegisterPage extends PageObject {
+public class RegisterPage extends MyPageObject {
 	
 	private static final String ALERT_SUCCESS = "//div[@class='alert alert-success text-center']";
 	private static final String ALERT_DANGER = "//div[@class='alert alert-danger text-center']";
