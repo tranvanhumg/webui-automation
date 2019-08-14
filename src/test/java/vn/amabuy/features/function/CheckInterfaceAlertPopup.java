@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTags;
@@ -38,5 +39,6 @@ public class CheckInterfaceAlertPopup {
 		alertSteps.open_web();
 		alertSteps.show_popup();
 		alertSteps.answer("Hashing van");
+		alertSteps.accept();
 	}
 }

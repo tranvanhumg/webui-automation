@@ -40,11 +40,11 @@ public class MyCustomeFirefoxDriver implements DriverSource {
 		// FirefoxOptions options = new FirefoxOptions();
 		FirefoxOptions options = new FirefoxOptions(capabilities);
 //    		options.addArguments("--headless");
-		options.addArguments("--width=800");
-		options.addArguments("--height=800");
-		options.addArguments("-private");// nac danh
+//		options.addArguments("--width=800");
+//		options.addArguments("--height=800");
+		//options.addArguments("-private");// nac danh
 		// options.addArguments("--incognito");
-		// options.addArguments("start-maximized");
+		options.addArguments("start-maximized");
 
 		// capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
 		// 4. Driver

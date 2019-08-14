@@ -41,6 +41,7 @@ public class AlertPage extends MyPageObject {
 
 	public void answer_popup(String answer) {
 		getAlert().sendKeys(answer);
+		waitABit(5000);
 	}
 
 	public void wait_For_Alert() {
