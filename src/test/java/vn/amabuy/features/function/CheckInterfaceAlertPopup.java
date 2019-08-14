@@ -13,7 +13,7 @@ import vn.amabuy.steps.AlertSteps;
 
 @RunWith(SerenityRunner.class)
 @WithTags({ @WithTag("alert") })
-public class CheckInterfaceAlertPop {
+public class CheckInterfaceAlertPopup {
 
 	@Managed
 	WebDriver driver;
