@@ -1,4 +1,4 @@
-package vn.amabuy.features.browser;
+package vn.amabuy.features.function;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,10 +8,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTags;
 import net.thucydides.core.util.EnvironmentVariables;
 import vn.amabuy.properties.MyProperties;
 
 @RunWith(SerenityRunner.class)
+@WithTags(
+{
+	@WithTag("checkEnviromentVariable")
+})
 public class CheckSerenityProperties {
 		
 	private EnvironmentVariables enviroment;

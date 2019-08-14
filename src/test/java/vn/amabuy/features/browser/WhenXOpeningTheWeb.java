@@ -20,7 +20,6 @@ import vn.amabuy.steps.RegisterSteps;
 @RunWith(SerenityRunner.class)
 @WithTags(
 		{
-			@WithTag("parallel"),
 			@WithTag("open")
 		})
 public class WhenXOpeningTheWeb {
@@ -31,6 +30,9 @@ public class WhenXOpeningTheWeb {
 	@Steps
 	HomeSteps onHomeStep;
 		
+	@Steps(shared = true)
+	RegisterSteps registerStep;
+	
 	@Pending
 	@Test
 	public void when_opening_the_application() {
@@ -39,7 +41,11 @@ public class WhenXOpeningTheWeb {
 		onHomeStep.click_on_login_link();
 	}
 	@Test
-	public void xhare_verify_phone_variable_session() {
+	public void verify_phone_variable_session_from_other_class() {
 		assertThat("0654684135").isEqualTo(Serenity.sessionVariableCalled("phone"));
+	}
+	@Test
+	public void verify_email_variable_session_from_other_class() {
+		assertThat("0654684135").isEqualTo(registerStep.getEmail());
 	}
 }

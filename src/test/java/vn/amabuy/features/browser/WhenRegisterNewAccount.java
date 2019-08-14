@@ -1,16 +1,19 @@
 package vn.amabuy.features.browser;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.jruby.RubyBoolean.True;
+
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.UsePersistantStepLibraries;
 import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTags;
 import vn.amabuy.models.Account;
@@ -19,14 +22,22 @@ import vn.amabuy.steps.LoginSteps;
 import vn.amabuy.steps.RegisterSteps;
 
 @RunWith(SerenityRunner.class)
-@WithTags({ @WithTag("parallel"), @WithTag("register") })
+@WithTags({ @WithTag("register") })
+@UsePersistantStepLibraries
 public class WhenRegisterNewAccount {
-
-	Account account_correct_repwd = new Account("tranvan", "tranvan.humg@gmail.com", "0985035845", "tranvan1601",
-			"tranvan1601");
-	Account account_wrong_repwd = new Account("tranvan", "tranvan.humg@gmail.com", "0985035845", "tranvan1601",
-			"tranvan");
-
+	Account account_correct_repwd = Account.named("tranvan")
+			.withEmail("tranvan.humg@gmail.com")
+			.withPhone("0985035845")
+			.withPassword("tranvan1601")
+			.withConfirmPassword("tranvan1601")
+			.build();
+	Account account_wrong_repwd = Account.named("tranvan")
+			.withEmail("tranvan.humg@gmail.com")
+			.withPhone("0985035845")
+			.withPassword("tranvan1601")
+			.withConfirmPassword("tranvan")
+			.build();
+	
 	@Managed
 	WebDriver driver;
 
@@ -36,14 +47,13 @@ public class WhenRegisterNewAccount {
 	@Steps
 	LoginSteps loginSteps;
 
-	@Steps
+	@Steps(shared = true)
 	RegisterSteps registerSteps;
 
-	
 	@Test
 	public void register_new_account_with_incorect_password() {
 		String errMsg = "thành công";
-
+		
 		registerSteps.randoom_account(account_correct_repwd);
 
 		homeSteps.visit_the_application();
@@ -93,7 +103,8 @@ public class WhenRegisterNewAccount {
 		System.out.print(account_correct_repwd.getPhone());
 	}
 
-	@Pending @Test
+	@Pending
+	@Test
 	public void verify_email_variable_session() {
 
 		assertThat(account_correct_repwd.getEmail()).isEqualTo(Serenity.sessionVariableCalled("email"));
@@ -103,6 +114,12 @@ public class WhenRegisterNewAccount {
 	public void verify_phone_variable_session() {
 
 		assertThat(account_correct_repwd.getPhone()).isEqualTo(Serenity.sessionVariableCalled("phone"));
+	}
+
+	@Test
+	public void verify_email_UsePersistantStepLibraries() {
+
+		assertThat(account_correct_repwd.getEmail()	).isEqualTo(registerSteps.getEmail());
 	}
 
 }

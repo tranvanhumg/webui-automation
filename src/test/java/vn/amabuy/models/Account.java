@@ -1,15 +1,17 @@
 package vn.amabuy.models;
 
-import org.apache.commons.lang3.RandomStringUtils;
-
 public class Account {
 
+	
+	
 	private String fullname;
 	private String email;
 	private String phone;
 	private String password;
 	private String repassword;
-
+	public static AccountBuilder named(String name) {
+		return new AccountBuilder(name);
+	}
 	public Account(String fullname, String email, String phone, String pwd, String repwd) {
 		this.fullname = fullname;
 		this.email = email;
@@ -58,4 +60,5 @@ public class Account {
 		this.repassword = repassword;
 	}
 
+	
 }

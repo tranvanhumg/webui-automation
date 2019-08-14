@@ -13,8 +13,14 @@ import vn.amabuy.pages.RegisterPage;
 public class RegisterSteps {
 	RegisterPage onRegisterPage;
 
+	String email;
+	public String getEmail()
+	{
+		return email;
+	}
 	@Step
 	public void register_new_account_with(Account account) {
+		email= account.getEmail();
 		Serenity.setSessionVariable("email").to(account.getEmail());
 		Serenity.setSessionVariable("phone").to(account.getPhone());
 
