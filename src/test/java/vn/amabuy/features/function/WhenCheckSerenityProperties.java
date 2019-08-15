@@ -16,9 +16,9 @@ import vn.amabuy.properties.MyProperties;
 @RunWith(SerenityRunner.class)
 @WithTags(
 {
-	@WithTag("checkEnviromentVariable")
+	@WithTag("EnviromentVariable")
 })
-public class CheckSerenityProperties {
+public class WhenCheckSerenityProperties {
 		
 	private EnvironmentVariables enviroment;
 	private String myProperties_fullname;
