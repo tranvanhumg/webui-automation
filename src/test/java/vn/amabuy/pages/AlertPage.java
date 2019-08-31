@@ -10,6 +10,7 @@ import vn.amabuy.MyPageObject;
 
 public class AlertPage extends MyPageObject {
 
+	
 	@FindBy(xpath = "//button[@onclick='myAlertFunction()']")
 	WebElementFacade showAlertButton;
 
@@ -41,7 +42,7 @@ public class AlertPage extends MyPageObject {
 
 	public void answer_popup(String answer) {
 		getAlert().sendKeys(answer);
-		waitABit(5000);
+		waitABit(1000);
 	}
 
 	public void wait_For_Alert() {

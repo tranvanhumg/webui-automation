@@ -10,11 +10,6 @@ public class AlertSteps {
 	AlertPage onAlertPage;
 
 	@Step
-	public void open_web() {
-		onAlertPage.open();
-	}
-	
-	@Step
 	public void show_alert() {
 		onAlertPage.click_show_alert();
 	}
